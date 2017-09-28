@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.pojo.Customer" table="cst_customer">
+		<id name="cust_id" type="java.lang.Long">
+			<column name="cust_id"></column>
+			<generator class="native" />
+		</id>
+		<property name="cust_name" column="cust_name" type="java.lang.String"
+			length="20"></property>
+		<property name="cust_level" column="cust_level" type="java.lang.String"
+			length="50"></property>
+		<property name="cust_address" column="cust_address" type="java.lang.String"></property>
+		<property name="cust_linkman" column="cust_linkman" type="java.lang.String"></property>
+		<property name="cust_create_id" column="cust_create_id" type="java.lang.Long"></property>
+		<property name="cust_phone" column="cust_phone" type="java.lang.String"></property>
+		<property name="cust_mobile" column="cust_mobile" type="java.lang.String"></property>
+		<property name="cust_source" column="cust_source" type="java.lang.String"></property>
+		<property name="cust_user_id" column="cust_user_id" type="java.lang.Long"></property>
+		<property name="cust_fax" column="cust_fax" type="java.lang.String"></property>
+		<property name="cust_zip" column="cust_zip" type="java.lang.String"></property>
+		<property name="cust_website" column="cust_website" type="java.lang.String"></property>
+		<set name="setLinkMan" cascade="save-update,delete" inverse="true">
+	<key column="clid"></key>
+	<one-to-many class="com.pojo.LinkMan" />
+		</set>
+	</class>
+</hibernate-mapping>

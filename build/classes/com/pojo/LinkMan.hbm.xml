@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+	<class name="com.pojo.LinkMan" table="t_lingman">
+		<id name="lkm_id" type="java.lang.Long">
+			<column name="lkm_id"></column>
+			<generator class="native" />
+		</id>
+		<property name="lkm_name" column="lkm_name" type="java.lang.String"
+			length="20"></property>
+		<property name="lkm_gender" column="lkm_gender" type="java.lang.String"></property>
+		<property name="lkm_phone" column="lkm_phone" type="java.lang.String"></property>
+		<property name="lkm_mobile" column="lkm_mobile" type="java.lang.String"></property>
+
+		<many-to-one name="customer" class="com.pojo.Customer"  lazy="false"
+			column="clid"></many-to-one>
+	</class>
+</hibernate-mapping>

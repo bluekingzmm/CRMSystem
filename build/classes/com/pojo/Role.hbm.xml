@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+	<class name="com.pojo.Role" table="sys_role">
+		<id name="role_id" type="java.lang.Long">
+			<column name="role_id"></column>
+			<generator class="native" />
+		</id>
+		<property name="role_name" column="role_name" type="java.lang.String"
+			length="20"></property>
+
+		<property name="role_memo" column="role_memo" type="java.lang.String"></property>
+
+		<set name="users" table="sys_user_role">
+		<key column="role_id"></key>
+		<many-to-many class="com.pojo.User" column="user_id"></many-to-many>
+		</set>
+	</class>
+</hibernate-mapping>

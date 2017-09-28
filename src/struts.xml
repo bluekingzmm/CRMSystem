@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+<struts>
+
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.ui.theme" value="simple" />
+	<constant name=" configuration.xml.reload" value="true" />
+
+	<package name="default" namespace="/" extends="struts-default">
+		<default-action-ref name="execute"></default-action-ref>
+		<action name="execute" class="com.action.FirstAction">
+			<result>/index.jsp</result>
+		</action>
+
+		<action name="*User" class="com.action.UserAction" method="{1}">
+			<result name="login">/login.jsp</result>
+			<result name="index">/index.jsp</result>
+			<result name="input">/login.jsp</result>
+			<result name="error">/{1}.jsp</result>
+
+		</action>
+		<action name="*Customer" class="com.action.CustomerAction"
+			method="{1}">
+			<result name="success" type="redirectAction">
+				<param name="actionName">listCustomer</param>
+			</result>
+			<result name="list">/jsp/customer/list.jsp</result>
+			<result name="add">/jsp/customer/add.jsp</result>
+			<result name="update">/jsp/customer/edit.jsp</result>
+			<result name="input">/jsp/customer/{1}.jsp</result>
+			<result name="error">/jsp/error.jsp</result>
+
+		</action>
+		<action name="*LinkMan" class="com.action.LinkManAction"
+			method="{1}">
+			<result name="success" type="redirectAction">
+				<param name="actionName">listLinkMan</param>
+			</result>
+			<result name="list">/jsp/linkman/list.jsp</result>
+			<result name="add">/jsp/linkman/add.jsp</result>
+			<result name="update">/jsp/linkman/edit.jsp</result>
+			<result name="input">/jsp/linkman/{1}.jsp</result>
+			<result name="error">/jsp/error.jsp</result>
+
+		</action>
+	</package>
+
+</struts>
