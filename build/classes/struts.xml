@@ -9,10 +9,7 @@
 	<constant name=" configuration.xml.reload" value="true" />
 
 	<package name="default" namespace="/" extends="struts-default">
-		<default-action-ref name="execute"></default-action-ref>
-		<action name="execute" class="com.action.FirstAction">
-			<result>/index.jsp</result>
-		</action>
+		
 
 		<action name="*User" class="com.action.UserAction" method="{1}">
 			<result name="login">/login.jsp</result>
